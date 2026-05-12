@@ -128,7 +128,7 @@ private:
 
 public:
     // TODO: Constructor(make, year, fuelLevel, payloadTons)
-    Truck(std::string make, int year, double feulLevel, double payloadTons);
+    Truck(std::string make, int year, double fuelLevel, double payloadTons);
 
     // TODO: getPayloadTons()
     double getPayloadTons() const;
@@ -146,7 +146,7 @@ public:
 // ----------------------------------------------------------------
 
 // TODO: Implement Vehicle constructor
-Vehicle:: Vehicle(std::string make, int year, double fuelLevel) : make(make), year(year), fuelLevel(fuelLevel){}
+Vehicle::Vehicle(std::string make, int year, double fuelLevel) : make(make), year(year), fuelLevel(fuelLevel){}
 
 // TODO: Implement getMake(), getYear(), getFuelLevel()
 std::string Vehicle::getMake() const {return make;}
@@ -155,9 +155,10 @@ double Vehicle::getFuelLevel() const {return fuelLevel;}
 
 // TODO: Implement refuel(double amount)
 void Vehicle::refuel(double amount){
-    if (amount <=0){       //return
-        fuelLevel += amount;
+    if (amount <= 0){       //return
+        return;
     }
+    fuelLevel += amount;
     if (fuelLevel > 100.0){
         fuelLevel = 100.0;
     }
@@ -179,7 +180,7 @@ int Car::getNumDoors() const {return numDoors;}
 // TODO: Implement describe()
 std::string Car::describe() const {
     std::ostringstream oss;
-    oss << "car: " << make << "(" << year << "), " << numDoors << "doors, fuel:" << "%";
+    oss << "Car: " << make << " (" << year << "), " << numDoors << " doors, fuel: " << fuelLevel << "%";
     return oss.str();
 }
 
